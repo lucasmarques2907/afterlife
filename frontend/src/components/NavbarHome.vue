@@ -3,7 +3,7 @@
     <v-app-bar :elevation="1" scroll-behavior="hide" color="#fff" class="px-md-6">
       <v-app-bar-title>
         <a class="navbar-brand" href="#">
-          <img src="../assets/imgs/AfterlifeLogoCompleta.jpeg" alt="Afterlife Logo">
+          <img src="../assets/imgs/AfterlifeLogoCompleta.jpeg" class="pt-1" alt="Afterlife Logo">
         </a>
       </v-app-bar-title>
       <v-btn v-if="!isMobile" rounded="0" class="btn-registrar" @click="toggleDrawer" style="margin-right: 10px;">
@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     isMobile() {
-      return this.$vuetify.display.mobile;
+      return this.$vuetify.display.smAndDown;
     },
     drawerLocation() {
       return this.isMobile ? 'top' : false;
@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 .navbar-brand img {
-  max-width: 270px;
+  max-width: 250px;
 }
 .btn-registrar {
   background-color: #91C141 !important;

@@ -19,11 +19,10 @@ export default {
 
 * {
   font-family: Roboto, sans-serif;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 html {
-  height: 100vh;
   box-sizing: border-box;
 }
 
@@ -31,7 +30,6 @@ body {
   position: relative;
   margin: 0;
   min-height: 100vh;
-  padding-bottom: 70px;
   box-sizing: inherit;
 }
 

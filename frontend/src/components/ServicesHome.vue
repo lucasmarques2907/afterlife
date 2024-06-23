@@ -1,7 +1,7 @@
 <template>
-  <div class="services">
+  <section class="services">
     <h1 class="font-weight-bold text-center" style="line-height: 1.2em;">Conheça nossos serviços</h1>
-    <v-row class="mt-5">
+    <v-row class="mt-5 justify-center">
       <v-col cols="12" sm="4" class="service text-center">
         <div class="border-icons">
             <span class="mdi mdi-key-outline icon" style="rotate: 30deg;"></span>
@@ -27,7 +27,7 @@
         </p>
       </v-col>
     </v-row>
-  </div>
+  </section>
 </template>
 
 <script>
