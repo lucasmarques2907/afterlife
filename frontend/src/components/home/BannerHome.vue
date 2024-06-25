@@ -8,7 +8,7 @@
       <v-btn rounded="0" class="btn-registrar" @click="toggleDrawer">CRIAR CONTA</v-btn>
     </div>
     <div class="d-flex justify-center">
-      <img class="image" src="../assets/imgs/ComputadorComEscudo.png" alt="computador">
+      <img class="image" src="../../assets/imgs/ComputadorComEscudo.png" alt="computador">
     </div>
   </div>
 </template>

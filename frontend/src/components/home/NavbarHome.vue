@@ -3,7 +3,7 @@
     <v-app-bar :elevation="1" scroll-behavior="hide" color="#fff" class="px-md-6">
       <v-app-bar-title>
         <a class="navbar-brand" href="#">
-          <img src="../assets/imgs/AfterlifeLogoCompleta.jpeg" class="pt-1" alt="Afterlife Logo">
+          <img src="../../assets/imgs/AfterlifeLogoCompleta.jpeg" class="pt-1" alt="Afterlife Logo">
         </a>
       </v-app-bar-title>
       <v-btn v-if="!isMobile" rounded="0" class="btn-registrar" @click="toggleDrawer" style="margin-right: 10px;">
