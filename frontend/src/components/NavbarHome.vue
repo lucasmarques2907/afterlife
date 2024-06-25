@@ -1,5 +1,5 @@
 <template>
-<div>
+  <div>
     <v-app-bar :elevation="1" scroll-behavior="hide" color="#fff" class="px-md-6">
       <v-app-bar-title>
         <a class="navbar-brand" href="#">
@@ -9,7 +9,7 @@
       <v-btn v-if="!isMobile" rounded="0" class="btn-registrar" @click="toggleDrawer" style="margin-right: 10px;">
         REGISTRAR
       </v-btn>
-      <v-btn v-if="!isMobile" rounded="0" class="btn-entrar" @click="toggleDrawer">
+      <v-btn v-if="!isMobile" rounded="0" class="btn-entrar" @click="openModalLogin">
         ENTRAR
       </v-btn>
       <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -19,20 +19,27 @@
         <v-btn v-if="isMobile" rounded="0" class="btn-registrar btn-drawer" @click="toggleDrawer">
           REGISTRAR
         </v-btn>
-        <v-btn v-if="isMobile" rounded="0" class="btn-entrar btn-drawer" @click="toggleDrawer">
+        <v-btn v-if="isMobile" rounded="0" class="btn-entrar btn-drawer" @click="openModalLogin">
           ENTRAR
         </v-btn>
       </v-list>
     </v-navigation-drawer>
-</div>
+    <ModalLogin :showModal="showModalLogin" @close="closeModalLogin" />
+  </div>
 </template>
 
 <script>
+import ModalLogin from './ModalLogin.vue';
+
 export default {
   name: 'NavbarHome',
+  components: {
+    ModalLogin
+  },
   data() {
     return {
       drawer: false,
+      showModalLogin: false,
     };
   },
   computed: {
@@ -47,6 +54,12 @@ export default {
     toggleDrawer() {
       this.drawer = !this.drawer;
     },
+    openModalLogin() {
+      this.showModalLogin = true;
+    },
+    closeModalLogin() {
+      this.showModalLogin = false;
+    }
   },
 };
 </script>
@@ -64,7 +77,7 @@ export default {
 .btn-entrar {
   background-color: #617A95 !important;
   color: white !important;
-  font-weight: bold !important;
+  font-weight: 900 !important;
 }
 .btn-registrar:hover {
   background-color: #6d9232 !important;
@@ -73,7 +86,10 @@ export default {
   background-color: #4d6279 !important;
 }
 .btn-drawer {
-width: 150px; 
-margin: 5px auto;
+  width: 150px; 
+  margin: 5px auto;
+}
+.v-navigation-drawer__scrim {
+  height: 0;
 }
 </style>
