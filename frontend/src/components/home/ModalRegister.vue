@@ -4,7 +4,7 @@
       <v-card-title>Cadastro</v-card-title>
       <form @submit.prevent="submit">
         <v-card-text class="pb-0">
-          <p class="pb-2">TITULAR</p>
+          <p class="pb-2 font-weight-bold">TITULAR</p>
           <v-row>
             <v-col cols="12" md="6" class="pb-0">
               <v-text-field label="Nome completo" type="text" required></v-text-field>
@@ -28,10 +28,31 @@
               <v-text-field label="Confirmação da senha" type="password" required></v-text-field>
             </v-col>
           </v-row>
-          <p class="pt-4 pb-2">DEPENDENTES</p>
+          <p class="pt-4 pb-2 font-weight-bold">DEPENDENTES</p>
+          <v-row>
+            <v-col cols="12" md="6" class="pb-0">
+              <v-text-field label="Nome completo" type="text" required></v-text-field>
+            </v-col>
+            <v-col cols="12" md="6" class="pb-0">
+              <v-text-field label="E-mail" type="email" required></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="pb-0">
+              <v-text-field label="Grau de Parentesco" type="text" required></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="pb-0">
+              <v-text-field label="CPF" type="text" required></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="pb-0">
+              <v-text-field label="Telefone" type="text" required></v-text-field>
+            </v-col>
+            <v-col cols="12" class="text-center mb-2">
+              <v-btn text elevation="0" rounded="0"><span class="mdi mdi-plus"></span>Adicionar</v-btn>
+            </v-col>
+          </v-row>
         </v-card-text>
-        <v-card-actions class="pb-1">
-          <v-btn class="btn-entrar" rounded="0" text @click="closeDialog" block>Entrar</v-btn>
+        <v-card-actions class='d-flex justify-center'>
+          <v-btn text rounded="0" @click="closeDialog">Cancelar</v-btn>
+          <v-btn class="btn-entrar" rounded="0" text @click="saveItem">Salvar</v-btn>
         </v-card-actions>
       </form>
     </v-card>
@@ -62,6 +83,13 @@ export default {
       }
     }
   },
+  methods: {
+    closeDialog() {
+      this.$emit('close');
+    },
+    saveItem() {
+    }
+  }
 };
 </script>
 
@@ -70,15 +98,15 @@ export default {
   background-color: #91C141 !important;
   color: white !important;
   font-weight: bold !important;
+  width: 100px;
 }
 
 .btn-entrar:hover {
   background-color: #6d9232 !important;
 }
 
-.esqueceuSenha {
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
+.action {
+  display: flex;
+  justify-content: center;
 }
 </style>
