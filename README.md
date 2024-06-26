@@ -35,4 +35,4 @@
 
 ### Pacotes/Dependências
 
-- Caso você tenha instalado algum pacote ou dependência no projeto, edite este README.md e adicione o comando utilizado neste tópico
+- SweetAlert2 (npm install sweetalert2)
