@@ -7,6 +7,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
+import Texts from "../views/Texts.vue";
 
 const routes = [
     {
@@ -18,6 +19,11 @@ const routes = [
         path: "/Admin",
         name: "Admin",
         component: Admin,
+    },
+    {
+        path: "/textos",
+        name: "Texts",
+        component: Texts,
     },
 ];
 
