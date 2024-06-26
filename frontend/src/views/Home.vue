@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import NavbarHome from "../components/NavbarHome.vue";
-import BannerHome from "../components/BannerHome.vue";
-import ServicesHome from "../components/ServicesHome.vue";
-import FooterHome from "../components/FooterHome.vue";
+import NavbarHome from "../components/home/NavbarHome.vue";
+import BannerHome from "../components/home/BannerHome.vue";
+import ServicesHome from "../components/home/ServicesHome.vue";
+import FooterHome from "../components/home/FooterHome.vue";
 import ModalRegister from "../components/ModalRegister.vue";
 
 export default {

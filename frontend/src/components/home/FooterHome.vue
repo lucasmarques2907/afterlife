@@ -3,7 +3,7 @@
     <div class="footer d-flex flex-column">
       <div class="d-flex flex-column flex-sm-row justify-center align-center ga-sm-10">
         <div cols="12" sm="3">
-          <img src="../assets/imgs/AfterlifeLogoSimples.png" alt="logo AfterLife">
+          <img src="../../assets/imgs/AfterlifeLogoSimples.png" alt="logo AfterLife">
         </div>
         <div cols="12" sm="4" class="text-center text-sm-left">
             <p class="font-weight-bold">CONTATO</p>
