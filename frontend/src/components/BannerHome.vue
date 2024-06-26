@@ -5,7 +5,7 @@
       <h3 class="pb-3 font-italic">
         Gerenciamento seguro de dados pessoais, garantindo tranquilidade para o amanhã.
       </h3>
-      <v-btn rounded="0" class="btn-registrar" @click="toggleDrawer">CRIAR CONTA</v-btn>
+      <v-btn rounded="0" class="btn-registrar" @click="$emit('open-register')">CRIAR CONTA</v-btn>
     </div>
     <div class="d-flex justify-center">
       <img class="image" src="../assets/imgs/ComputadorComEscudo.png" alt="computador">

@@ -6,7 +6,7 @@
           <img src="../assets/imgs/AfterlifeLogoCompleta.jpeg" class="pt-1" alt="Afterlife Logo">
         </a>
       </v-app-bar-title>
-      <v-btn v-if="!isMobile" rounded="0" class="btn-registrar" @click="toggleDrawer" style="margin-right: 10px;">
+      <v-btn v-if="!isMobile" rounded="0" class="btn-registrar" @click="$emit('open-register')" style="margin-right: 10px;">
         REGISTRAR
       </v-btn>
       <v-btn v-if="!isMobile" rounded="0" class="btn-entrar" @click="openModalLogin">
@@ -16,7 +16,7 @@
     </v-app-bar>
     <v-navigation-drawer v-if="isMobile" v-model="drawer" hide-overlay :location="drawerLocation">
       <v-list class="d-flex flex-column">
-        <v-btn v-if="isMobile" rounded="0" class="btn-registrar btn-drawer" @click="toggleDrawer">
+        <v-btn v-if="isMobile" rounded="0" class="btn-registrar btn-drawer" @click="$emit('open-register')">
           REGISTRAR
         </v-btn>
         <v-btn v-if="isMobile" rounded="0" class="btn-entrar btn-drawer" @click="openModalLogin">
@@ -59,7 +59,7 @@ export default {
     },
     closeModalLogin() {
       this.showModalLogin = false;
-    }
+    },
   },
 };
 </script>
