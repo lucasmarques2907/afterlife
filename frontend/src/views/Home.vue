@@ -13,7 +13,7 @@ import NavbarHome from "../components/home/NavbarHome.vue";
 import BannerHome from "../components/home/BannerHome.vue";
 import ServicesHome from "../components/home/ServicesHome.vue";
 import FooterHome from "../components/home/FooterHome.vue";
-import ModalRegister from "../components/ModalRegister.vue";
+import ModalRegister from "../components/home/ModalRegister.vue";
 
 export default {
   name: 'viewHome',
