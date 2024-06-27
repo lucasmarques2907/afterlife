@@ -27,12 +27,9 @@ footer {
     right: 0;
     left: 0;
     bottom: 0;
-}
-
-footer {
-    margin-top: 20px;
     padding-top: 20px;
     text-align: center;
+    margin-top: calc(100vh + 76px);
 }
 
 footer p {
