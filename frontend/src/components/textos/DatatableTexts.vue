@@ -3,7 +3,7 @@
     <div class="container">
       <v-card>
         <v-card-title class="header">
-          <div class="title">Arquivo: Textos</div>
+          <div class="title"><v-btn icon="mdi mdi-chevron-left" elevation="0"></v-btn> Arquivo: Textos</div>
           <v-spacer></v-spacer>
           <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisar" single-line hide-details></v-text-field>
         </v-card-title>
