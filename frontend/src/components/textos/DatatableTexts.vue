@@ -166,6 +166,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
+  padding-bottom: 76px;
 }
 .v-data-table {
   white-space: nowrap;

@@ -24,13 +24,18 @@ export default {
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
   position: relative;
   margin: 0;
-  min-height: 100vh;
+  min-height: 100%;
   box-sizing: inherit;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column
 }
 
 </style>
