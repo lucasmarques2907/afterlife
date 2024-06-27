@@ -4,7 +4,7 @@
       <v-card-title>Cadastro</v-card-title>
       <form @submit.prevent="submit">
         <v-card-text class="pb-0">
-          <p class="pb-2 font-weight-bold">TITULAR</p>
+          <h4 class="pb-2 font-weight-bold">TITULAR</h4>
           <v-row>
             <v-col cols="12" md="6" class="pb-0">
               <v-text-field label="Nome completo" type="text" required></v-text-field>
@@ -24,11 +24,14 @@
             <v-col cols="12" md="6" class="pb-0">
               <v-text-field label="Senha" type="password" required></v-text-field>
             </v-col>
-            <v-col cols="12" md="6" class="pb-0">
+            <v-col cols="12" md="6">
               <v-text-field label="Confirmação da senha" type="password" required></v-text-field>
             </v-col>
           </v-row>
-          <p class="pt-4 pb-2 font-weight-bold">DEPENDENTES</p>
+          <div class="d-flex justify-space-between pt-1">
+            <h4 class="pt-4 pb-2 font-weight-bold">DEPENDENTE 1</h4>
+            <v-btn icon="mdi-delete" elevation="0"></v-btn>        
+          </div>
           <v-row>
             <v-col cols="12" md="6" class="pb-0">
               <v-text-field label="Nome completo" type="text" required></v-text-field>
@@ -45,7 +48,7 @@
             <v-col cols="12" md="4" class="pb-0">
               <v-text-field label="Telefone" type="text" required></v-text-field>
             </v-col>
-            <v-col cols="12" class="text-center mb-2">
+            <v-col cols="12" class="text-center mb-2 mt-0">
               <v-btn text elevation="0" rounded="0"><span class="mdi mdi-plus"></span>Adicionar</v-btn>
             </v-col>
           </v-row>
