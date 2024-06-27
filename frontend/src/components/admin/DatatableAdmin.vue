@@ -31,18 +31,28 @@
                     <span class="headline">{{ dialogTitle }}</span>
                 </v-card-title>
                 <v-card-text>
+                    <div class="title titleDependente">Dependente 1</div>
                     <v-row>
-                        <v-col cols="12" class="pb-0">
-                            <v-text-field v-model="editedItem.name" label="Título"></v-text-field>
+                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="pb-0">
+                            <v-text-field v-model="editedItem.name" label="Nome completo"></v-text-field>
                         </v-col>
-                        <v-col cols="12" class="pb-0">
-                            <v-text-field v-model="editedItem.description" label="Descrição"></v-text-field>
+                        <v-col cols="12" lg="6" md="6" class="pb-0">
+                            <v-text-field v-model="editedItem.description" label="E-mail"></v-text-field>
                         </v-col>
-                        <v-col cols="12" class="pb-0">
-                            <v-textarea label="Texto"></v-textarea>
+                        <v-col cols="12" lg="4" md="4" class="pb-0">
+                            <v-text-field v-model="editedItem.description" label="Grau de parentesco"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" lg="4" md="4" class="pb-0">
+                            <v-text-field v-model="editedItem.description" label="CPF"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" lg="4" md="4" class="pb-0">
+                            <v-text-field v-model="editedItem.description" label="Telefone"></v-text-field>
                         </v-col>
                     </v-row>
                 </v-card-text>
+                <v-card-actions class='action'>
+                    <v-btn class="btnCancel" rounded="0" text>Adicionar</v-btn>
+                </v-card-actions>
                 <v-card-actions class='action'>
                     <v-btn class="btnCancel" rounded="0" text @click="closeDialog">Cancelar</v-btn>
                     <v-btn class="btnGreen" rounded="0" text @click="saveItem">Confirmar</v-btn>
@@ -125,7 +135,7 @@ export default {
             this.dialog = true;
         },
         openEditModal(item) {
-            this.dialogTitle = 'Editar Texto';
+            this.dialogTitle = 'Editar Usuário';
             this.editedItem = Object.assign({}, item);
             this.dialog = true;
         },
