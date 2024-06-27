@@ -3,11 +3,11 @@
     <div class="container">
       <v-card>
         <v-card-title class="header">
-          <div class="title">Arquivo: Textos</div>
+          <div class="title">Arquivo: Vídeos</div>
           <v-spacer></v-spacer>
           <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisar" single-line hide-details></v-text-field>
         </v-card-title>
-        <v-data-table :headers="headers" :items="texts" :search="search" class="elevation-1" items-per-page-text="itens por página" pageText='{0}-{1} de {2}'>
+        <v-data-table :headers="headers" :items="videos" :search="search" class="elevation-1" items-per-page-text="itens por página" pageText='{0}-{1} de {2}'>
           <template v-slot:[`item.actions`]="{ item }">
             <div class="icons">
               <v-icon small class="mr-2" @click="openEditModal(item)">
@@ -20,10 +20,10 @@
           </template>
         </v-data-table>
       </v-card>
-      <v-btn class="btnGreen btnAdd" rounded="0" @click="openAddModal">+ NOVO TEXTO</v-btn>
+      <v-btn class="btnGreen btnAdd" rounded="0" @click="openAddModal">+ ADICIONAR VÍDEOS</v-btn>
     </div>
 
-    <!-- Modal for Add/Edit Text -->
+    <!-- Modal for Add/Edit Video -->
     <v-dialog v-model="dialog" max-width="1000px">
       <v-card>
         <v-card-title>
@@ -32,29 +32,29 @@
         <v-card-text>
             <v-row>
               <v-col cols="12" class="pb-0">
-                <v-text-field v-model="editedItem.name" label="Título"></v-text-field>
+                <v-text-field class="pb-0" v-model="editedItem.name" label="Título"></v-text-field>
               </v-col>
-            <v-col cols="12" class="pb-0">
-                <v-text-field v-model="editedItem.description" label="Descrição"></v-text-field>
+              <v-col cols="12">
+                <v-text-field class="pb-0" v-model="editedItem.description" label="Descrição"></v-text-field>
               </v-col>
-            <v-col cols="12" class="pb-0">
-                <v-textarea  label="Texto"></v-textarea>
-            </v-col>
+              <v-col cols="12" class="pt-0">
+                <p>Vídeos</p>
+                <UploadVideos />
+              </v-col>
             </v-row>
         </v-card-text>
         <v-card-actions class='action'>
           <v-btn class="btnCancel" rounded="0" text @click="closeDialog">Cancelar</v-btn>
-          <v-btn class="btnGreen" rounded="0" text @click="saveItem">Confirmar</v-btn>
+          <v-btn class="btnGreen" rounded="0" text @click="saveItem">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-
     <!-- Modal for Delete Confirmation -->
     <v-dialog v-model="deleteDialog" max-width="500px">
       <v-card>
         <v-card-title class="headline">Excluir</v-card-title>
         <v-card-text>
-          Você realmente deseja excluir o texto <strong>{{ deletedItem.description }}</strong>?
+          Você realmente deseja excluir o vídeo <strong>{{ deletedItem.description }}</strong>?
         </v-card-text>
         <v-card-actions class='action'>
           <v-btn class="btnCancel" rounded="0" text @click="closeDeleteDialog">Cancelar</v-btn>
@@ -64,9 +64,9 @@
     </v-dialog>
   </v-container>
 </template>
-
-
 <script>
+import UploadVideos from './UploadVideos.vue'
+
 export default {
   data() {
     return {
@@ -82,24 +82,24 @@ export default {
       headers: [
         { title: 'Título', align: 'start', value: 'name'},
         { title: 'Descrição', value: 'description' },
-        { title: 'Última Alteração', value: 'lastChange' },
+        { title: 'Última Alteração', value: 'updateDate' },
         { title: '', value: 'actions',  align: 'center', sortable: false }
       ],
-      texts: [
+      videos: [
           {
-            name: 'Texto 1',
-            description: 'Texto sobre x',
-            lastChange: "03/04/2024 - 21:48",
+            name: 'Instruções',
+            description: 'Instruções importantes',
+            updateDate: "03/04/2024 - 21:48",
           },
           {
-            name: 'Texto 2',
-            description: 'Texto 2 sobre x',
-            lastChange: "04/04/2024 - 21:48",
+            name: 'Instruções 2',
+            description: 'Instruções importantes',
+            updateDate: "04/04/2024 - 21:48",
           },
           {
-            name: 'Texto 3',
-            description: 'Texto 3 sobre x',
-            lastChange: "05/04/2024 - 21:48",
+            name: 'Recordações',
+            description: 'Recordações importantes',
+            updateDate: "05/04/2024 - 21:48",
           }
       ],
       editedIndex: -1,
@@ -111,12 +111,12 @@ export default {
   },
   methods: {
     openAddModal() {
-      this.dialogTitle = 'Adicionar Texto';
+      this.dialogTitle = 'Adicionar Vídeos';
       this.editedItem = Object.assign({}, this.defaultItem);
       this.dialog = true;
     },
     openEditModal(item) {
-      this.dialogTitle = 'Editar Texto';
+      this.dialogTitle = 'Editar Vídeos';
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
@@ -131,27 +131,27 @@ export default {
       this.deleteDialog = false;
     },
     saveItem() {
-      if (this.dialogTitle === 'Adicionar Senha') {
-        this.texts.push(Object.assign({}, this.editedItem));
+      if (this.dialogTitle === 'Adicionar Vídeos') {
+        this.videos.push(Object.assign({}, this.editedItem));
       } else {
-        const index = this.texts.findIndex(i => i.description === this.editedItem.description);
+        const index = this.videos.findIndex(i => i.description === this.editedItem.description);
         if (index !== -1) {
-          Object.assign(this.texts[index], this.editedItem);
+          Object.assign(this.videos[index], this.editedItem);
         }
       }
       this.closeDialog();
     },
     deleteItemConfirmed() {
-      const index = this.texts.findIndex(i => i.description === this.deletedItem.description);
+      const index = this.videos.findIndex(i => i.description === this.deletedItem.description);
       if (index !== -1) {
-        this.texts.splice(index, 1);
+        this.videos.splice(index, 1);
       }
       this.closeDeleteDialog();
     },
-  },
+  },  
+  components: { UploadVideos }
 };
 </script>
-
 <style scoped>
 .v-card {
   display: flex;
@@ -160,13 +160,16 @@ export default {
 .action {
   align-self: center;
 }
+.v-card {
+  display: flex;
+  flex-direction: column;
+}
 .v-card-title {
   display: flex;
 }
 .container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 76px;
 }
 .v-data-table {
   white-space: nowrap;
@@ -220,9 +223,6 @@ export default {
   }
   .title {
     padding-bottom: 16px;
-  }
-  .btnGreen {
-    align-self: center;
   }
   .btnAdd {
     align-self: center;
