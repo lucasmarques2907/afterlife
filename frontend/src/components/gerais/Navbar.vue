@@ -23,6 +23,7 @@
                 </v-list>
             </v-menu>
         </v-app-bar>
+        <ModalSetting :showModalSetting="showModalSetting" @close="showModalSetting = false"/>
     </div>
 </template>
 
@@ -30,22 +31,25 @@
 
 import router from '@/router';
 import Swal from 'sweetalert2';
+import ModalSetting from './ModalSetting.vue';
 
 export default {
     name: 'Navbar',
+    components: {
+        ModalSetting
+    },
     data() {
         return {
             drawer: false,
+            showModalSetting: false,
             items: [
                 {
                     title: 'Configurar conta',
                     icon: 'mdi-cog',
-
                 },
                 {
                     title: 'Sair',
                     icon: 'mdi-logout',
-
                 }
             ]
         };
@@ -66,8 +70,8 @@ export default {
             let opcao = this.items[index].title;
             switch (opcao) {
                 case 'Configurar conta':
-                    console.log('Selecionou configurar conta')
-                    break
+                    this.showModalSetting = true;
+                    break;
                 case 'Sair':
                     Swal.fire({
                         title: "Deseja sair da sua conta?",
@@ -92,10 +96,7 @@ export default {
                             });
                         }
                     });
-                    // router.push({
-                    //     path: '/'
-                    // })
-                    break
+                    break;
             }
         }
     },
@@ -108,6 +109,6 @@ export default {
 }
 
 :deep(.v-list-item__spacer) {
-    width: 16px !important; /* Ajuste o valor conforme necessário */
+    width: 16px !important;
 }
 </style>

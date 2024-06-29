@@ -1,7 +1,7 @@
 <template>
-  <v-dialog v-model="dialog" max-width="1000px">
+  <v-dialog v-model="dialog" max-width="1000">
     <v-card class="pa-4">
-      <v-card-title>Cadastro</v-card-title>
+      <v-card-title>Configurar Conta</v-card-title>
       <form @submit.prevent="submit">
         <v-card-text class="pb-0">
           <h4 class="pb-2 font-weight-bold">TITULAR</h4>
@@ -67,16 +67,16 @@
 
 <script>
 export default {
-  name: 'ModalRegister',
+  name: 'ModalSetting',
   props: {
-    showModalRegister: {
+    showModalSetting: {
       type: Boolean,
       default: false
     },
   },
   data() {
     return {
-      dialog: this.showModalRegister,
+      dialog: this.showModalSetting,
       dependents: [
         {
           name: '',
@@ -89,7 +89,7 @@ export default {
     };
   },
   watch: {
-    showModalRegister(val) {
+    showModalSetting(val) {
       this.dialog = val;
     },
     dialog(val) {
